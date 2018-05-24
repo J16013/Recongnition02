@@ -17,7 +17,7 @@ public class Recongnition02_main {
 	public static void main(String[] args) {
 		// TODO 自動生成されたメソッド・スタブ
 		VisualRecognition service = new VisualRecognition("2018-03-19");
-		service.setApiKey("c9492283a95fc45911de623c781297a751b85a00");
+		service.setApiKey("J16013");
 
 		InputStream imagesStream = null;
 		try {
