@@ -41,49 +41,54 @@ public class Recongnition02_main {
 		try {
 			node = mapper.readTree(s);
 
+			String class_fruit = node.get("images")
+					.get(0).get("classifiers")
+					.get(0).get("classes")
+					.get(0).get("class")
+					.asText();
+			double classes_score1=node.get("images")
+					.get(0).get("classifiers")
+					.get(0).get("classes")
+					.get(0).get("score")
+					.asDouble();
+			String class_color1=node.get("images")
+					.get(0).get("classifiers")
+					.get(0).get("classes")
+					.get(1).get("class")
+					.asText();
+			double classes_score2=node.get("images")
+					.get(0).get("classifiers")
+					.get(0).get("classes")
+					.get(1).get("score")
+					.asDouble();
+			String class_color2=node.get("images")
+					.get(0).get("classifiers")
+					.get(0).get("classes")
+					.get(2).get("class")
+					.asText();
+			double classes_score3=node.get("images")
+					.get(0).get("classifiers")
+					.get(0).get("classes")
+					.get(2).get("score")
+					.asDouble();
+
+			System.out.println("class1:"+class_fruit);
+			System.out.println("score1:"+classes_score1);
+			System.out.println("class2:"+class_color1);
+			System.out.println("score2:"+classes_score2);
+			System.out.println("class3:"+class_color2);
+			System.out.println("score3:"+classes_score3);
+
+			MySQL mysql=new MySQL();
+			mysql.updateImage(class_fruit, classes_score1, class_color1, classes_score2, class_color2, classes_score3);
 
 		} catch (IOException e) {
 			// TODO 自動生成された catch ブロック
 			e.printStackTrace();
 		}
 
-		String class_fruit = node.get("images")
-				.get(0).get("classifiers")
-				.get(0).get("classes")
-				.get(0).get("class")
-				.asText();
-		double classes_score1=node.get("images")
-				.get(0).get("classifiers")
-				.get(0).get("classes")
-				.get(0).get("score")
-				.asDouble();
-		String class_color1=node.get("images")
-				.get(0).get("classifiers")
-				.get(0).get("classes")
-				.get(1).get("class")
-				.asText();
-		double classes_score2=node.get("images")
-				.get(0).get("classifiers")
-				.get(0).get("classes")
-				.get(1).get("score")
-				.asDouble();
-		String class_color2=node.get("images")
-				.get(0).get("classifiers")
-				.get(0).get("classes")
-				.get(2).get("class")
-				.asText();
-		double classes_score3=node.get("images")
-				.get(0).get("classifiers")
-				.get(0).get("classes")
-				.get(2).get("score")
-				.asDouble();
 
-		System.out.println("class:"+class_fruit);
-		System.out.println("score:"+classes_score1);
-		System.out.println("class:"+class_color1);
-		System.out.println("score:"+classes_score2);
-		System.out.println("class:"+class_color2);
-		System.out.println("score:"+classes_score3);
+
 	}
 
 }
