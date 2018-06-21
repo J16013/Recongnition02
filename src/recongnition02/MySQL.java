@@ -17,11 +17,11 @@ public class MySQL{
 
 	public MySQL() {
 		this.driver = "org.gjt.mm.mysql.Driver";
-	    this.server = "J16013";
-	    this.dbname = "J16013";
+	    this.server = "sangi2018.sist.ac.jp";
+	    this.dbname = "j16013";
 	    this.url = "jdbc:mysql://" + server + "/" + dbname + "?useUnicode=true&characterEncoding=UTF-8";
-	    this.user = "J16013";
-	    this.password = "J16013";
+	    this.user = "j16013";
+	    this.password = "sistj16013";
 	    try {
 	        this.con = DriverManager.getConnection(url, user, password);
 	        this.stmt = con.createStatement ();
@@ -51,7 +51,8 @@ public class MySQL{
 	public void updateImage(String class_fruit, double classes_score1, String class_color1, double classes_score2, String class_color2, double classes_score3) {
 		//keywordテーブルへ格納
 		StringBuffer buf = new StringBuffer();
-		buf.append("INSERT INTO  `recognitions` (`user_id`,`class1` ,`score1` ,`class2` ,`score2` ,`class3`,`score3`) VALUES ( 'J16013', '" + class_fruit + "', "+ classes_score1 +", '" + class_color1 + "', "+ classes_score2 +", '" + class_color2 + "', "+ classes_score3 + "  );");
+		buf.append("INSERT INTO  `recognitions` (`class1` ,`score1` ,`class2` ,`score2` ,`class3`,`score3`)"
+				+ " VALUES ( '"+ class_fruit + "', "+ classes_score1 +", '" + class_color1 + "', "+ classes_score2 +", '" + class_color2 + "', "+ classes_score3 + "  );");
 		String sql = buf.toString();
 		try {
 			stmt.execute (sql);
